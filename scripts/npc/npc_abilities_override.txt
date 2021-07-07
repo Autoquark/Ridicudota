@@ -1,0 +1,15 @@
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+	"zuus_thundergods_wrath"
+	{
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		
+		"AbilityCooldown"				"10 8 6"
+	}
+	
+	"zuus_static_field"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	}
+}
