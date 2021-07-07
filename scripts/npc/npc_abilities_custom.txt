@@ -160,6 +160,7 @@
 		"ScriptFile"			        "heroes/hero_zuus/static_field.lua"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"	
 		"AbilitySound"					"Hero_Zuus.StaticField"
+		"AbilityTextureName"			"zuus_static_field"
 		
         "HasShardUpgrade"               "1"
 		

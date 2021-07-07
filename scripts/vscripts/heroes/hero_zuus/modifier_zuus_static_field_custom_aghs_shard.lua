@@ -34,27 +34,27 @@ function OnIntervalThink(keys)
 	for i=1,PlayerResource:GetPlayerCountForTeam(enemyTeam) do
 		local playerId = PlayerResource:GetNthPlayerIDOnTeam(enemyTeam, i)
 		local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-		if hero:IsAlive() and not hero:IsMagicImmune() then
+		if hero and hero:IsAlive() and not hero:IsMagicImmune() then
 			table.insert(validTargets, hero)
 		end
 	end
-	
-	DebugPrint("Targets:" .. table.getn(validTargets))
-	DebugPrintTable(validTargets)
+
 	if table.getn(validTargets) == 0 then
 		return
 	end
 	
 	local targetIndex = RandomInt(1, table.getn(validTargets))
-	DebugPrint(targetIndex)
 	local target = validTargets[targetIndex]
 	
 	local staticFieldCustom = caster:FindAbilityByName("zuus_static_field_custom")
 	if staticFieldCustom:IsFullyCastable() then
 		DebugPrint("Casting static field custom")
-		--caster:CastAbilityImmediately(staticFieldCustom, caster:GetPlayerOwnerID())
+		
 		caster:SetCursorCastTarget(target)
 		staticFieldCustom:OnSpellStart()
+		
+		local level = staticFieldCustom:GetLevel()
+		staticFieldCustom:StartCooldown(staticFieldCustom:GetEffectiveCooldown(level))
 	end
 end
 

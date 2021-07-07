@@ -35,7 +35,7 @@ function OnSpellStart(keys)
 	local lightningBolt = caster:FindAbilityByName("zuus_lightning_bolt")
 	local staticFieldCustom = caster:FindAbilityByName("zuus_static_field_custom")
 	local cooldown = staticFieldCustom:GetCooldown( staticFieldCustom:GetLevel() )
-	local target = keys.targe
+	local target = keys.target
 	
 	DebugPrint("Casting auto lightning bolt on " .. target:GetUnitName())
 	--caster:CastAbilityOnTarget(target, lightningBolt, caster:GetPlayerOwnerID())
