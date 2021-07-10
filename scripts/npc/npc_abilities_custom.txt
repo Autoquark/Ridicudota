@@ -153,21 +153,16 @@
 	{
 		// General
 		
-		"ID"					"5112"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
 		"ScriptFile"			        "heroes/hero_zuus/static_field.lua"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"	
 		"AbilitySound"					"Hero_Zuus.StaticField"
 		"AbilityTextureName"			"zuus_static_field"
 		
         "HasShardUpgrade"               "1"
-		
-		// Shard ability
-		"AbilityCooldown"				"6 5 3"
 
-		// Special
 		"AbilitySpecial"
 		{
 			"01"
@@ -177,97 +172,10 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
 				"CalculateSpellDamageTooltip"	"0"
 			}
-		}
-		
-		"Modifiers"
-		{
-			"zuus_aghs_shard_custom_passive"
+			"01"
 			{
-				"Attributes"			"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Passive"				"1"
-				"ThinkInterval"			"0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_zuus/modifier_zuus_static_field_custom_aghs_shard.lua"
-						"Function"		"OnIntervalThink"
-					}
-				}
-			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_zuus/static_field.lua"
-				"Function"		"OnSpellStart"
-				"Target"
-				{
-					"Center"  		"CASTER"
-					"Radius" 		"GLOBAL"
-					"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"			"DOTA_UNIT_TARGET_HERO"
-					"MaxTargets"	"1"
-					"Random"		"1"
-				}
-			}
-		}
-		
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_zuus/static_field.lua"
-				"Function"		"OnUpgrade"
-			}
-		}
-		
-		//"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-		//"AbilityCastGestureSlot"		"DEFAULT"
-	}
-	
-	"zuus_aghs_shard_custom"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"						"ability_datadriven"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-	
-		//"IsGrantedByShard"				"1"
-		"MaxLevel"						"1"
-
-		
-		"Modifiers"
-		{
-			"zuus_aghs_shard_custom_passive"
-			{
-				"Passive" "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_zuus/aghs_shard.lua"
-						"Function"		"TriggerCheck"
-					}
-				}
-			}
-		}
-		
-		"OnAbilityStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_abaddon/aghs_shard.lua"
-				"Function"		"Cast"
-				"Target"
-				{
-					"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"			"DOTA_UNIT_TARGET_HERO"
-					"MaxTargets"	"1"
-					"Random"		"1"
-				}
+				"var_type"					"FIELD_FLOAT"
+				"cooldown"					"24"
 			}
 		}
 	}

@@ -16,8 +16,8 @@ function modifier_zuus_static_field_custom_aghs_shard:OnCreated(keys)
 	end
 end
 
-function OnIntervalThink(keys)
-	local caster = keys.ability:GetCaster()
+function modifier_zuus_static_field_custom_aghs_shard:OnIntervalThink()
+	local caster = self:GetParent()
 	local lightningBolt = caster:FindAbilityByName("zuus_lightning_bolt")
 	
 	-- Check if we can use the ability
@@ -55,24 +55,6 @@ function OnIntervalThink(keys)
 		
 		local level = staticFieldCustom:GetLevel()
 		staticFieldCustom:StartCooldown(staticFieldCustom:GetEffectiveCooldown(level))
-	end
-end
-
-function modifier_zuus_static_field_custom_aghs_shard:OnIntervalThink()
-	local caster = self:GetCaster()
-	
-	if(not caster:HasModifier("modifier_item_aghanims_shard")) then
-		DebugPrint("No shard")
-		return
-	end
-	
-	local staticFieldCustom = caster:FindAbilityByName("zuus_static_field_custom")
-	local lightningBolt = caster:FindAbilityByName("zuus_lightning_bolt")
-	local cooldown = staticFieldCustom:GetCooldown( staticFieldCustom:GetLevel() )
-	-- TODO: Probably not IsFullyCastable for lightningBolt, maybe not for shard either
-	if staticFieldCustom:IsFullyCastable() and lightningBolt:IsFullyCastable() then
-		DebugPrint("Casting static field custom")
-		caster:CastAbilityImmediately(staticFieldCustom, caster:GetPlayerOwnerID())
 	end
 end
 
