@@ -3,22 +3,19 @@
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
-	//=================================================================================================================
-	// HERO: Templar Assassin
-	//=================================================================================================================
-	"npc_dota_hero_templar_assassin_template"
+	"npc_dota_hero_axe_template"
 	{
-		"override_hero"				"npc_dota_hero_templar_assassin"			// Hero to override
-		"Ability1"					"templar_assassin_refraction_holdout"		// Ability 1
-		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"override_hero"				"npc_dota_hero_axe"
+		
+		"Ability3"					"axe_counter_helix_custom"
 	}
-	
+
 	"npc_dota_hero_zuus_template"
 	{
 		"override_hero"				"npc_dota_hero_zuus"
 		
 		// Upon loading in, Zeus will be given back the original static field but we have made it hidden. When this ability is levelled, it also levels the original static field.
-		// The point of this is to hide the original so the player can't use the original aghs shard ability while keeping the original functionality so I don't have to try to replicate it
+		// The point of this is to hide the original so the player can't use the original aghs shard ability while keeping the original % damage functionality so I don't have to try to replicate it
 		"Ability3"					"zuus_static_field_custom"
 		//"Ability5"					"zuus_aghs_shard_custom"
 		"Ability6"					"zuus_thundergods_wrath_custom"

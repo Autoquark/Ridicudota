@@ -12,14 +12,6 @@ function zuus_static_field_custom:OnUpgrade()
 	end
 end
 
---function zuus_static_field_custom:GetBehavior()
---	if(not self:HasModifier("modifier_item_aghanims_shard")) then
---		return self.BaseClass:GetBehavior()
---	end
-	
---	return self.BaseClass:GetBehavior() | DOTA_ABILITY_BEHAVIOR_IMMEDIATE
---end
-
 function zuus_static_field_custom:OnSpellStart(keys)
 	local caster = self:GetCaster()
 	local lightningBolt = caster:FindAbilityByName("zuus_lightning_bolt")
